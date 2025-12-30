@@ -43,19 +43,21 @@ SECTION_MECHANICAL = """
 * **Suspension:** James Duff Stage 3 (Long Arms, Variable Rate Springs).
 """
 
-# 3. ELECTRONICS (UPDATED for Python/Qt)
+# 3. ELECTRONICS (UPDATED: Unified Python/Qt Stack)
 SECTION_ELECTRONICS = """
 # 3. Electronics Architecture (Bronco OS)
 * **Architecture:** Dual-Node Compute + Distributed ESP32 I/O.
 * **Network:** CAN Bus 2.0B (500kbps) on Twisted Pair (Green/Yellow).
 
 ## Compute Nodes
-* **Cluster (Dash):** Pi 4 + CarPiHat + 12.3" Wisecoco Bar Display (1920x720).
-    * *Repo:* `github.com/PipeManMusic/BroncoIIDash` (Godot Engine).
+* **Cluster (Dash):** Pi 4 + CarPiHat + 12.3" Wisecoco Bar Display.
+    * *Repo:* `github.com/PipeManMusic/BroncoIIDash`
+    * *Stack:* **Python 3 + PySide6 (Qt Quick/QML)**.
+    * *Data:* Direct CAN decode via `can_decoder.py`.
 * **Infotainment (Center):** Pi 5 + Touchscreen.
     * *Repo:* `github.com/PipeManMusic/BroncoII-Infotainment`
     * *Stack:* **Python 3 + PySide6 (Qt Quick/QML)**.
-    * *Why:* Faster boot, lower resource usage, native DBus access for Media/Bluetooth.
+    * *Function:* Media, Nav, System Config, Manual Viewer.
     * *Storage:* Industrial USB Hub in "Tech Bay" (Glovebox).
 
 ## Distributed I/O Nodes
@@ -87,7 +89,7 @@ SECTION_FABRICATION = """
     * **Loom:** Snake Skin (Engine) / Tesa Felt (Interior).
 """
 
-# 5. DEVELOPMENT ENVIRONMENT (UPDATED for Python/Qt)
+# 5. DEVELOPMENT ENVIRONMENT (UPDATED: Unified Python/Qt Stack)
 SECTION_DEV_ENV = """
 # 5. Development Environment & Workflow
 
@@ -104,21 +106,16 @@ SECTION_DEV_ENV = """
 
 ### 2. Infotainment System (`BroncoII-Infotainment`)
 * **Repo:** `github.com/PipeManMusic/BroncoII-Infotainment` (Public)
-* **Target Hardware:** Raspberry Pi 5.
-* **Architecture:** Python 3 + Qt Quick (QML).
-    * **Language:** Python 3.11+
-    * **UI Framework:** PySide6 (Qt for Python).
-    * **Key Files:**
-        * `main.py`: App Entry Point. Bootstraps QML engine.
-        * `ui/*.qml`: UI Layouts (Infotainment.qml, MediaTab.qml).
-        * `lib/can_manager.py`: SocketCAN interface.
-        * `lib/media_manager.py`: DBus/MPRIS Media control.
-        * `lib/bluetooth_manager.py`: BlueZ Phone pairing.
+* **Hardware:** Pi 5.
+* **Stack:** Python 3 + PySide6 (Qt).
+* **Core:** `can_manager.py` (SocketCAN), `media_manager.py` (DBus/MPRIS).
 
 ### 3. Instrument Cluster (`BroncoIIDash`)
 * **Repo:** `github.com/PipeManMusic/BroncoIIDash`
-* **Target Hardware:** Raspberry Pi 4.
-* **Engine:** Godot Game Engine (Exported to Linux/X11).
+* **Hardware:** Pi 4 (CarPiHat).
+* **Stack:** Python 3 + PySide6 (Qt).
+* **Core:** `can_decoder.py`, `dashboard.qml`.
+* **Features:** Switchable Layouts (Sport/Zen), Custom SVG Status Doll.
 """
 
 # ==========================================
@@ -161,7 +158,7 @@ def main():
     write_file(f"{base_dir}/_AI_CONTEXT_RESTORE.md", ai_memory_blob)
     
     print("--- Update Complete ---")
-    print(f"AI Memory updated: Python/Qt Infotainment Architecture Locked In.")
+    print(f"AI Memory updated: Unified Python/Qt Stack for BOTH screens.")
 
 if __name__ == "__main__":
     main()

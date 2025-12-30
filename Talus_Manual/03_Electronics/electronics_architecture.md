@@ -4,12 +4,14 @@
 * **Network:** CAN Bus 2.0B (500kbps) on Twisted Pair (Green/Yellow).
 
 ## Compute Nodes
-* **Cluster (Dash):** Pi 4 + CarPiHat + 12.3" Wisecoco Bar Display (1920x720).
-    * *Repo:* `github.com/PipeManMusic/BroncoIIDash` (Godot Engine).
+* **Cluster (Dash):** Pi 4 + CarPiHat + 12.3" Wisecoco Bar Display.
+    * *Repo:* `github.com/PipeManMusic/BroncoIIDash`
+    * *Stack:* **Python 3 + PySide6 (Qt Quick/QML)**.
+    * *Data:* Direct CAN decode via `can_decoder.py`.
 * **Infotainment (Center):** Pi 5 + Touchscreen.
     * *Repo:* `github.com/PipeManMusic/BroncoII-Infotainment`
     * *Stack:* **Python 3 + PySide6 (Qt Quick/QML)**.
-    * *Why:* Faster boot, lower resource usage, native DBus access for Media/Bluetooth.
+    * *Function:* Media, Nav, System Config, Manual Viewer.
     * *Storage:* Industrial USB Hub in "Tech Bay" (Glovebox).
 
 ## Distributed I/O Nodes

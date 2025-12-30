@@ -14,18 +14,13 @@
 
 ### 2. Infotainment System (`BroncoII-Infotainment`)
 * **Repo:** `github.com/PipeManMusic/BroncoII-Infotainment` (Public)
-* **Target Hardware:** Raspberry Pi 5.
-* **Architecture:** Python 3 + Qt Quick (QML).
-    * **Language:** Python 3.11+
-    * **UI Framework:** PySide6 (Qt for Python).
-    * **Key Files:**
-        * `main.py`: App Entry Point. Bootstraps QML engine.
-        * `ui/*.qml`: UI Layouts (Infotainment.qml, MediaTab.qml).
-        * `lib/can_manager.py`: SocketCAN interface.
-        * `lib/media_manager.py`: DBus/MPRIS Media control.
-        * `lib/bluetooth_manager.py`: BlueZ Phone pairing.
+* **Hardware:** Pi 5.
+* **Stack:** Python 3 + PySide6 (Qt).
+* **Core:** `can_manager.py` (SocketCAN), `media_manager.py` (DBus/MPRIS).
 
 ### 3. Instrument Cluster (`BroncoIIDash`)
 * **Repo:** `github.com/PipeManMusic/BroncoIIDash`
-* **Target Hardware:** Raspberry Pi 4.
-* **Engine:** Godot Game Engine (Exported to Linux/X11).
+* **Hardware:** Pi 4 (CarPiHat).
+* **Stack:** Python 3 + PySide6 (Qt).
+* **Core:** `can_decoder.py`, `dashboard.qml`.
+* **Features:** Switchable Layouts (Sport/Zen), Custom SVG Status Doll.
