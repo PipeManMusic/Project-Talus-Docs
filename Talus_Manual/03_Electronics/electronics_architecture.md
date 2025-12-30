@@ -20,3 +20,13 @@
     * *Specifics:* Controls Vintage Air (Drive-by-Wire), Reads Steering Buttons.
     * *GPIO 27:* Reserved for Screen Backlight PWM.
 * **Node C (Rear):** ESP32 + ADS1115. Fuel Level, Lights, Pump.
+
+## Navigation Strategy (Native)
+* **Engine:** MapLibre Native for Qt.
+* **Data Source:** OpenStreetMap (OSM) vector tiles.
+* **Offline Capability:** Local `.mbtiles` storage on the Pi 5 SSD.
+* **Aesthetic:** Custom Mapbox Studio JSON style designed to match 1989 "Retro-Mod" color palette.
+
+## Development Philosophy: The "Mule" Phase
+* **Current Priority:** Hardware abstraction and functional logic (Radio tuning, CAN data parsing, Video piping).
+* **UI Strategy:** Modular "Mule Tabs" in QML. High-fidelity UI (based on original 1989 Ford stereo buttons) is deferred until all "moving parts" are verified functional.

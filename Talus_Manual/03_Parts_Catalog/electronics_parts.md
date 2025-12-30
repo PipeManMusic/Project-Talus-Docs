@@ -21,3 +21,13 @@
 
 ## Sensors
 * **ABS Module:** BMW MK60E5 (E90 3-Series) - Part: 3451-6777158
+
+## Infotainment Peripherals
+* **Radio Tuner:** RTL-SDR Blog V4 
+    * **Chipset:** RTL2832U
+    * **USB ID:** `0xbda:0x2838`
+    * **Driver:** Python `pyrtlsdr` -> QML.
+* **Phone Projection:** CarlinKit CPC200-CCPA
+    * **USB ID:** `0x1314:0x1521`
+    * **Protocol:** "AutoKit" (USB Bulk Transfer).
+    * **Driver Strategy:** Userspace USB driver via `pyusb` / `libusb`.
