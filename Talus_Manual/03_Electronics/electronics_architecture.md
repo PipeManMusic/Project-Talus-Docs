@@ -5,9 +5,12 @@
 
 ## Compute Nodes
 * **Cluster (Dash):** Pi 4 + CarPiHat + 12.3" Wisecoco Bar Display (1920x720).
-    * *Repo:* `github.com/PipeManMusic/BroncoIIDash`
-* **Infotainment (Center):** Pi 5 + Touchscreen [TBD].
-    * *Function:* Media, Nav, "Digital Owner's Manual" Host.
+    * *Repo:* `github.com/PipeManMusic/BroncoIIDash` (Godot Engine).
+* **Infotainment (Center):** Pi 5 + Touchscreen.
+    * *Repo:* `github.com/PipeManMusic/BroncoII-Infotainment`
+    * *Stack:* **Python 3 + PySide6 (Qt Quick/QML)**.
+    * *Why:* Faster boot, lower resource usage, native DBus access for Media/Bluetooth.
+    * *Storage:* Industrial USB Hub in "Tech Bay" (Glovebox).
 
 ## Distributed I/O Nodes
 * **Node A (Engine):** ESP32. Lights, Horn, Hood.

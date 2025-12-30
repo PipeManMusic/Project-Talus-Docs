@@ -43,7 +43,7 @@ SECTION_MECHANICAL = """
 * **Suspension:** James Duff Stage 3 (Long Arms, Variable Rate Springs).
 """
 
-# 3. ELECTRONICS
+# 3. ELECTRONICS (UPDATED for Python/Qt)
 SECTION_ELECTRONICS = """
 # 3. Electronics Architecture (Bronco OS)
 * **Architecture:** Dual-Node Compute + Distributed ESP32 I/O.
@@ -51,9 +51,12 @@ SECTION_ELECTRONICS = """
 
 ## Compute Nodes
 * **Cluster (Dash):** Pi 4 + CarPiHat + 12.3" Wisecoco Bar Display (1920x720).
-    * *Repo:* `github.com/PipeManMusic/BroncoIIDash`
-* **Infotainment (Center):** Pi 5 + Touchscreen [TBD].
-    * *Function:* Media, Nav, "Digital Owner's Manual" Host.
+    * *Repo:* `github.com/PipeManMusic/BroncoIIDash` (Godot Engine).
+* **Infotainment (Center):** Pi 5 + Touchscreen.
+    * *Repo:* `github.com/PipeManMusic/BroncoII-Infotainment`
+    * *Stack:* **Python 3 + PySide6 (Qt Quick/QML)**.
+    * *Why:* Faster boot, lower resource usage, native DBus access for Media/Bluetooth.
+    * *Storage:* Industrial USB Hub in "Tech Bay" (Glovebox).
 
 ## Distributed I/O Nodes
 * **Node A (Engine):** ESP32. Lights, Horn, Hood.
@@ -84,20 +87,38 @@ SECTION_FABRICATION = """
     * **Loom:** Snake Skin (Engine) / Tesa Felt (Interior).
 """
 
-# 5. DEVELOPMENT ENVIRONMENT (NEW)
+# 5. DEVELOPMENT ENVIRONMENT (UPDATED for Python/Qt)
 SECTION_DEV_ENV = """
 # 5. Development Environment & Workflow
+
 * **Host Machine:** Ubuntu Linux Laptop.
 * **IDE:** Visual Studio Code (VS Code).
 * **Connection Method:** VS Code "Remote - SSH" Extension.
-    * *Target:* Connects directly to Raspberry Pi 4 (Cluster Node) or Pi 5 (Infotainment).
-    * *Benefit:* Edits code live on the vehicle hardware.
 * **Version Control:** Git / GitHub.
-    * *Cluster Repo:* `github.com/PipeManMusic/BroncoIIDash`
-* **Software Stack:**
-    * *Cluster:* Godot Engine (Exported to Pi 4).
-    * *Backend:* Node.js (Handling CAN Bus messages).
-    * *Microcontrollers:* ESP-IDF or Arduino Framework (PlatformIO recommended).
+
+## Repository Structure
+
+### 1. Documentation (`Project-Talus-Docs`)
+* **Repo:** `github.com/PipeManMusic/Project-Talus-Docs` (Private)
+* **Purpose:** The "Digital Glovebox."
+
+### 2. Infotainment System (`BroncoII-Infotainment`)
+* **Repo:** `github.com/PipeManMusic/BroncoII-Infotainment` (Public)
+* **Target Hardware:** Raspberry Pi 5.
+* **Architecture:** Python 3 + Qt Quick (QML).
+    * **Language:** Python 3.11+
+    * **UI Framework:** PySide6 (Qt for Python).
+    * **Key Files:**
+        * `main.py`: App Entry Point. Bootstraps QML engine.
+        * `ui/*.qml`: UI Layouts (Infotainment.qml, MediaTab.qml).
+        * `lib/can_manager.py`: SocketCAN interface.
+        * `lib/media_manager.py`: DBus/MPRIS Media control.
+        * `lib/bluetooth_manager.py`: BlueZ Phone pairing.
+
+### 3. Instrument Cluster (`BroncoIIDash`)
+* **Repo:** `github.com/PipeManMusic/BroncoIIDash`
+* **Target Hardware:** Raspberry Pi 4.
+* **Engine:** Godot Game Engine (Exported to Linux/X11).
 """
 
 # ==========================================
@@ -140,7 +161,7 @@ def main():
     write_file(f"{base_dir}/_AI_CONTEXT_RESTORE.md", ai_memory_blob)
     
     print("--- Update Complete ---")
-    print(f"AI Memory updated with Development Environment details.")
+    print(f"AI Memory updated: Python/Qt Infotainment Architecture Locked In.")
 
 if __name__ == "__main__":
     main()
