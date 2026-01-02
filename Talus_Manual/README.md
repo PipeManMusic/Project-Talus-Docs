@@ -9,18 +9,18 @@ A 1989-themed digital dashboard for a 5.0L Swapped Bronco II. The system integra
 
 ## 🏗️ Implementation Roadmap (Functional Gates)
 
-### Gate 1: Hardware Abstraction & Handshaking
-- [x] **USB Bus Probe:** Peripherals identified on Pi 4.
-- [x] **CarlinKit Handshake:** Handshake logic verified in `tests/test_carlinkit.py`.
-- [x] **RTL-SDR Identification:** RTL-SDR Blog V4 confirmed on Bus.
-- [ ] **SDR Audio Stream:** Establish stable audio out from RTL-SDR.
-- [ ] **CarPlay Video:** Implement `v4l2h264dec` GStreamer pipeline for Pi 4.
+### Gate 1: Hardware Finalization
+- [x] **PCB Logic:** Isolated CAN & FET Drivers (Flux AI).
+- [x] **Thermal Guard:** TypeScript automation for high-current traces.
+- [ ] **Gerber Export:** Generate files for manufacturing.
+- [ ] **BOM (Bill of Materials):** Verify availability of Murata and ISO1050 chips.
+- [ ] **Touch Panel Probe:** Verify CTP USB identification on Pi 4.
+- [ ] **Backlight PWM:** Confirm ESP32 GPIO 27 controls brightness via ADJ pin.
 
-### Gate 2: Logic & Drivetrain Engine
-- [x] **Gear Calculation:** RPM/Speed math verified in `logic_engine.py`.
-- [ ] **Atlas II States:** Define logic for Twin Stick position sensor mapping.
-- [ ] **CAN Mapping:** Standardize MS3 and MK60 message parsing.
-- [ ] **GPS Integration:** Connect `gpsd` stream to backend.
+### Gate 2: Logic & Safety
+- [ ] **Relay Verification:** Implement "Sense-back" logic for Mirror Heaters.
+- [ ] **Fault Handling:** Define CAN "Error Frames" if feedback signal fails.
+- [ ] **Current Limiting:** Logic to disable outputs if sensed current exceeds threshold.
 
 ### Gate 3: Navigation (OSM Native)
 - [ ] **Local Tile Server:** Directory structure created for `.mbtiles`.
@@ -66,8 +66,45 @@ A 1989-themed digital dashboard for a 5.0L Swapped Bronco II. The system integra
 | **Radio** | 🔴 Pending | 🟢 Active | ⚪ Placeholder |
 | **Phone** | 🟡 Testing | 🟢 Active | ⚪ Placeholder |
 | **Nav** | 🔴 Pending | ⚪ N/A | ⚪ Placeholder |
+| **Dash Display** | 🟡 Testing | 🟢 Active | 🟢 Ready |
 
-### Gate 1: Hardware Abstraction & Handshaking
-- [x] **360° Vision Link:** Waveshare USB HDMI Capture Card (Inbound).
-- [ ] **Capture Verification:** Verify 1080p stream stability via `ffplay` or `v4l2-ctl`.
-- [ ] **UVC Integration:** Connect USB video stream to `VisionTab.qml`.
+
+
+## ⚡ Power & Control Logic
+- [x] **Relay Strategy:** External Relay Block (Off-PCB).
+- [ ] **PCB Logic Layer:** Implement MOSFET/Transistor drivers for relay triggers.
+- [ ] **Protection:** Flyback diodes integrated on PCB or at relay coils.
+- [ ] **Isolation:** Opto-isolated inputs for 12V vehicle triggers.
+
+## 📦 Hardware Inventory (Custom PCB)
+- [ ] **Body Module V1:** ESP32-based CAN controller.
+    - [x] Dual Deutsch 12-pin Connectors (Standardized Pinout).
+    - [x] Isolated CAN & Opto-I/O.
+    - [x] 12x Low-side Outputs (for external relay triggers).
+    - [x] 4x Opto-isolated Inputs (Atlas II / Vehicle Triggers).
+    
+## 🔌 PCB Engineering Specs (Body Module)
+- **Processor:** ESP32 (Header Socket Mounted)
+- **Connectors:** Dual TE DTM13-12PA-R008 (12-Pin Deutsch)
+- **CAN Transceiver:** ISO1050DUBR (Isolated, AEC-Q100)
+- **Isolation:** Murata CRE1S0505S3C (3kV Galvanic Isolation)
+- **I/O Logic:**
+    - 6x Low-Side Sinking Outputs (External Relay Triggers)
+    - 2x High-Voltage Opto-Isolated Inputs (Sense/Feedback)
+    
+## 💻 Firmware Objectives (ESP32)
+- [ ] **CAN Driver:** Implement TWAI (Two-Wire Automotive Interface) at 500kbps.
+- [ ] **Verification Loop:** Code to compare Output state vs. Opto-Input state.
+- [ ] **Debounce Logic:** 50ms filter for Atlas II stick sensors.
+- [ ] **Failsafe:** Auto-shutdown for high-amp loads on comms loss.
+
+## 🤖 Flux AI Automations
+- [x] **Trace Width Guard:** Custom rule to prevent undersized heater traces.
+- [ ] **Thermal Simulation:** Verify ESP32 voltage regulator heat dissipation.
+- [ ] **Clearance Check:** 2.5mm isolation gap between Field and Logic rails.
+
+## 🗺️ Master Wiring & Logic
+- [x] **Harness Definition:** WireViz YAML configured for MS3, MK60, and ESP32.
+- [ ] **Physical Build:** Shielded twisted-pair backbone installation.
+- [ ] **Termination Check:** 120-ohm resistors verified at MS3 and Pi 4 nodes.
+

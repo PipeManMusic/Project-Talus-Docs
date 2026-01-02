@@ -1,0 +1,60 @@
+# Body I/O Schematic for Talus Bronco II
+# Save as: bronco_ii_io.yaml
+
+style:
+  graph:
+    splines: ortho
+    nodesep: 3.0
+    ranksep: 2.5
+    rankdir: LR
+  visualizer:
+    - rank: same
+      nodes: [Body_Module_J1, Body_Module_J2]
+    - rank: same
+      nodes: [Mirror_L, Atlas_Sensors]
+  node:
+    shape: record
+    style: filled
+    fillcolor: white
+
+connectors:
+  Body_Module_J1:
+    pincount: 12
+    type: Deutsch_DTM_Black
+    pinlabels: [VCC, GND, NC1, NC2, OUT1, OUT2, OUT3, OUT4, OUT5, OUT6, FB1, FB2]
+  Body_Module_J2:
+    pincount: 12
+    type: Deutsch_DTM_Grey
+    pinlabels: [VCC, GND, CAN_H, CAN_L, NC1, NC2, NC3, NC4, NC5, NC6, IN3, IN4]
+  Mirror_L:
+    pincount: 6
+    type: Ford_Plug
+    pinlabels: [HEAT+, HEAT-, MTR_COM, MTR_X, MTR_Y, PUDDLE]
+  Atlas_Sensors:
+    pincount: 4
+    type: Micro-Fit
+    pinlabels: [SENS1, SENS2, VCC, GND]
+
+cables:
+  Mirror_Loom_L:
+    category: bundle
+    wirecount: 6
+    # Fixed color codes for 0.4.1 stability
+    colors: [BU, WH, RD, BN, OG, GY] 
+    gauge: 20 AWG
+  Sensor_Pigtail:
+    wirecount: 2
+    colors: [GN, YE]
+    gauge: 22 AWG
+
+connections:
+  # Mirror Connections (Out 1 & 2 for Heat)
+  - [Body_Module_J1: [OUT1, OUT2], Mirror_Loom_L: [1, 2], Mirror_L: [HEAT+, HEAT-]]
+  - [Body_Module_J1: [OUT6], Mirror_Loom_L: [6], Mirror_L: [PUDDLE]]
+  - [Body_Module_J2: [IN3, IN4], Sensor_Pigtail: [1, 2], Atlas_Sensors: [SENS1, SENS2]]
+
+visualizer:
+  - rank: same
+    nodes: [Body_Module_J1, Mirror_Loom_L, Mirror_L]
+  - rank: same
+    nodes: [Body_Module_J2, Sensor_Pigtail, Atlas_Sensors]

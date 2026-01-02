@@ -1,0 +1,30 @@
+# CAN Topology - Fixed Color Syntax
+style:
+  graph:
+    splines: ortho
+    rankdir: LR
+    nodesep: 3.0
+    ranksep: 2.5
+visualizer:
+  - rank: same
+    nodes: [MS3_Pro, MK60_ABS, Body_Module_J2, Pi4_CAN_Hat]
+
+connectors:
+  MS3_Pro: {pincount: 35, pinlabels: [GND, CAN_H, CAN_L]}
+  MK60_ABS: {pincount: 47, pinlabels: [CAN_H, CAN_L]}
+  Body_Module_J2: {pincount: 12, pinlabels: ["", "", CAN_H, CAN_L]}
+  Pi4_CAN_Hat: {pincount: 2, pinlabels: [CAN_H, CAN_L]}
+  Chassis_Ground: {pincount: 1, type: Stud}
+
+cables:
+  CAN_Trunk:
+    wirecount: 2
+    color: GY           # Grey outer jacket
+    colors: [WH, BU]    # Internal twisted pair
+    shield: true
+
+connections:
+  - [MS3_Pro: [CAN_H, CAN_L], CAN_Trunk: [1, 2], MK60_ABS: [CAN_H, CAN_L]]
+  - [MK60_ABS: [CAN_H, CAN_L], CAN_Trunk: [1, 2], Body_Module_J2: [CAN_H, CAN_L]]
+  - [Body_Module_J2: [CAN_H, CAN_L], CAN_Trunk: [1, 2], Pi4_CAN_Hat: [CAN_H, CAN_L]]
+  - [MS3_Pro: [GND], CAN_Trunk: [1], Chassis_Ground: [1]]

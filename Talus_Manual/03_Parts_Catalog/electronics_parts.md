@@ -4,7 +4,11 @@
 ### Primary Cluster (Dash)
 * **Model:** Wisecoco / HannStar HSD123KPW1-A30
 * **Specs:** 12.3 inch, 1920x720, 1000 nits.
+* **Touch Panel:** Capacitive Touch (CTP), USB Interface.
+    * **Connection:** USB Cable from CTP Controller connects to Pi 4 USB Port.
+    * **Power:** 5V via USB Bus.
 * **Driver Board Voltage:** 12V DC (Terminal 15).
+    * **Warning:** Do not power driver board via Raspberry Pi; use dedicated 12V switched rail.
 * **RPi Config:**
   ```bash
   hdmi_group=2

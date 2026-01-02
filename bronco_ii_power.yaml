@@ -1,0 +1,38 @@
+# Power Distribution - Fixed Color Syntax
+style:
+  graph:
+    splines: ortho
+    rankdir: LR
+    nodesep: 3.0
+    ranksep: 2.5
+visualizer:
+  - rank: same
+    nodes: [Battery_Main, Fuse_Block, Body_Module_J1, Body_Module_J2, Chassis_Ground]
+
+connectors:
+  Battery_Main: {pincount: 1, type: Terminal}
+  Fuse_Block: {pincount: 4, pinlabels: [MS3, ABS, B_LOGIC, B_FIELD]}
+  Body_Module_J1: {pincount: 12, pinlabels: [VCC_F, GND_F]}
+  Body_Module_J2: {pincount: 12, pinlabels: [VCC_L, GND_L]}
+  Chassis_Ground: {pincount: 1, type: Stud}
+
+cables:
+  Power_Loom:
+    wirecount: 4
+    color: RD           # Red outer loom
+    colors: [RD, RD, RD, RD]
+  Ground_Wires:
+    wirecount: 2
+    color: BK           # Black wires
+    colors: [BK, BK]
+
+connections:
+connections:
+  - [Battery_Main: [1], Power_Loom: [1], Fuse_Block: [1]]
+  - [Fuse_Block: [1], Power_Loom: [2], Fuse_Block: [2]]
+  - [Fuse_Block: [2], Power_Loom: [3], Fuse_Block: [3]]
+  - [Fuse_Block: [3], Power_Loom: [4], Fuse_Block: [4]]
+  - [Fuse_Block: [3, 4], Power_Loom: [1, 2], Body_Module_J1: [1, 2]]
+  - [Fuse_Block: [1, 2], Power_Loom: [3, 4], Body_Module_J2: [1, 2]]
+  - [Body_Module_J1: [2], Ground_Wires: [1], Chassis_Ground: [1]]
+  - [Body_Module_J2: [2], Ground_Wires: [2], Chassis_Ground: [1]]

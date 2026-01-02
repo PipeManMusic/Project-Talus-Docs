@@ -17,8 +17,9 @@
 ## Distributed I/O Nodes
 * **Node A (Engine):** ESP32. Lights, Horn, Hood.
 * **Node B (Dash):** ESP32 + MCP23017 + AD5206.
-    * *Specifics:* Controls Vintage Air (Drive-by-Wire), Reads Steering Buttons.
-    * *GPIO 27:* Reserved for Screen Backlight PWM.
+    * **Layout:** Landscape orientation; Deutsch connectors North/South.
+    * **Isolation:** 2.5mm physical "Moat" (Keepout) between GND_LOGIC and GND_FIELD.
+    * **GPIO 27:** Dedicated Backlight PWM for Wisecoco Driver.
 * **Node C (Rear):** ESP32 + ADS1115. Fuel Level, Lights, Pump.
 
 ## Navigation Strategy (Native)
