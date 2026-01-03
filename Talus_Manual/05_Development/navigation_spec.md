@@ -1,8 +1,7 @@
-# Navigation System Specification (Gate 3)
-
-* **Target Hardware:** Infotainment Node (Raspberry Pi 5)
-* **Software Stack:** Python 3 + PySide6 (Qt) + MapLibre Native
-* **Design Philosophy:** "Offline First" (Desert Capable) + "Retro-Mod" (1989 Aesthetic)
+# Navigation System Specification
+**Target Hardware:** Infotainment Node (Raspberry Pi 5)
+**Software Stack:** Python 3 + PySide6 (Qt) + MapLibre Native
+**Design Philosophy:** "Offline First" (Desert Capable) + "Retro-Mod" (1989 Aesthetic)
 
 ---
 
@@ -66,22 +65,3 @@ The UI must feel like a piece of high-end 1989 military/aviation equipment, not 
 * **Zoom:** Physical Rotary Encoder (Tech Bay or Console).
 * **Pan:** Touchscreen (Capacitive).
 * **Input:** On-screen keyboard for address search (only allowed when Speed = 0).
-
----
-
-## 5. Implementation Roadmap (Gate 3)
-
-### Phase A: The Renderer
-- [ ] **Dependency:** Install `maplibre-native-qt` bindings on Pi 5.
-- [ ] **Data:** Generate a test `.mbtiles` of Colorado using Planetiler.
-- [ ] **Render:** Get a basic map window displaying tiles in QML.
-
-### Phase B: The GPS Link
-- [ ] **Hardware:** Verify USB GPS stick is read by `gpsd`.
-- [ ] **Python:** Write `gps_manager.py` to poll `gpsd` and emit Qt Signals (`lat`, `lon`, `speed`).
-- [ ] **Link:** Bind MapLibre camera to `gps_manager` signals.
-
-### Phase C: The Router
-- [ ] **Docker:** Set up Valhalla container on Pi 5.
-- [ ] **Ingest:** Process OSM data for Valhalla routing graphs.
-- [ ] **API:** Write Python wrapper to query Valhalla and draw the returned Polyline.
