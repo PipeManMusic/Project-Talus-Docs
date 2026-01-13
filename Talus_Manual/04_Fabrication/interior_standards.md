@@ -1,4 +1,4 @@
-# Project Talus: Master Interior Design Specification (v2.0)
+# Project Talus: Master Interior Design Specification (v2.1)
 **Vehicle:** 1988 Ford Bronco II
 **Theme:** "SVT Raptor" meets "Aviation Cockpit"
 **Core Logic:** Modular "LRU" (Line Replaceable Unit) Construction
@@ -81,14 +81,30 @@
 **Concept:** Tri-layer construction for depth.
 
 ### Layer Stack
-1.  **Base:** ABS Plastic wrapped in **Black Vinyl**.
+1.  **Base:** ABS Plastic or Aluminum wrapped in **Black Vinyl**.
 2.  **Infill:** **Black Anodized Aluminum** (Top half).
 3.  **Armrest:** Steel-core box with Brushed Aluminum Switch Plate.
 4.  **Pocket:** Laser-cut **MOLLE Grid** (Wrinkle Black) spaced off the door with **1.5" HDPE Frame**.
 
 ---
 
-## 7. Next Actions
+## 7. Fabrication Data (1988 Spec)
+**Note:** Use these dimensions to generate the CAD "Master Blank" for the door cards.
+
+### Door Card Envelope (1988 Model)
+* **Width:** 44.0" (Hinge to Latch).
+* **Height:** 15.0" (Flat section below window felt).
+* **Material Thickness:** 0.063" (1/16") Aluminum (Recommended for stiffness).
+* **Profile:** 0.5" Radius on bottom corners; 90-degree or 0.125" radius on top corners.
+
+### Key Hard Points (Reference from Front/Top Edge)
+* **Window Crank/Switch:** ~8.0" Back / 4.0" Down.
+* **Door Release Handle:** ~6.0" Back / 8.0" Down.
+* **Armrest Anchors:** Located centrally (Transfer exact spacing from physical door shell).
+
+---
+
+## 8. Next Actions
 * [ ] **Order Floor Hardware:** 40x Black Oxide Lift-the-Dot Screw Studs (Enough for all 4 mats + cargo).
 * [ ] **Design Sandwich Plates:** Measure cage tubing diameter and floor pan contours.
 * [ ] **Order Console Materials:** 2'x4' sheet of 1" HDPE (for console spacers) + 4'x8' sheet of 5052 Aluminum.
