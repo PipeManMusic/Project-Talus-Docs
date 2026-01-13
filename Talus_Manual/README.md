@@ -3,7 +3,7 @@
 **Prototyping Hardware:** Raspberry Pi 4 (Targeting Pi 5 for Production)
 
 ## 🎯 Project Vision
-A 1989-themed digital dashboard for a 5.0L Swapped Bronco II. The system integrates MS3 Engine Data, MK60 ABS telemetry, and a custom "Open Source First" navigation engine, all wrapped in a skeuomorphic UI that mimics the original Ford factory stereo.
+A 1988-themed digital dashboard for a 5.0L Swapped Bronco II. The system integrates MS3 Engine Data, MK60 ABS telemetry, and a custom "Open Source First" navigation engine, all wrapped in a skeuomorphic UI that mimics the original Ford factory stereo.
 
 ---
 

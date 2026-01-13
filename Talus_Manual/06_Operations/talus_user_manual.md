@@ -1,5 +1,5 @@
 # Project Talus: Owner's Operating Handbook
-**Vehicle:** 1989 Ford Bronco II "SVT Restomod"
+**Vehicle:** 1988 Ford Bronco II "SVT Restomod"
 **VIN:** [Insert VIN]
 **Engine:** 5.0L Windsor V8 (Explorer) | **ECU:** MS3Pro Ultimate
 **Electrical System:** 12V Distributed CAN Bus

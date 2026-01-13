@@ -1,7 +1,7 @@
 # Navigation System Specification
 **Target Hardware:** Infotainment Node (Raspberry Pi 5)
 **Software Stack:** Python 3 + PySide6 (Qt) + MapLibre Native
-**Design Philosophy:** "Offline First" (Desert Capable) + "Retro-Mod" (1989 Aesthetic)
+**Design Philosophy:** "Offline First" (Desert Capable) + "Retro-Mod" (1988 Aesthetic)
 
 ---
 
@@ -49,7 +49,7 @@ MapLibre draws the map, but it does not know how to navigate it. We utilize a se
 ---
 
 ## 4. UI/UX Specifications ("Retro-Mod")
-The UI must feel like a piece of high-end 1989 military/aviation equipment, not a modern smartphone.
+The UI must feel like a piece of high-end 1988 military/aviation equipment, not a modern smartphone.
 
 ### A. "Zen" Mode (Default)
 * **Visuals:** Map fills 100% of the screen.

@@ -6,9 +6,9 @@
 ---
 
 ## 1. Core Mission
-**Objective:** Transform a 1989 Ford Bronco II into a "Modern SVT Raptor in a Retro Shell."
+**Objective:** Transform a 1988 Ford Bronco II into a "Modern SVT Raptor in a Retro Shell."
 **Philosophy:**
-* **Aesthetics:** Period-correct 1989 exterior (Two-Tone Molten Orange/Black) but flawless "Bad Chad" bodywork.
+* **Aesthetics:** Period-correct 1988 exterior (Two-Tone Molten Orange/Black) but flawless "Bad Chad" bodywork.
 * **Capability:** Modern powertrain (5.0L V8), digital nervous system (CAN Bus), and overbuilt safety (Cage/Armor).
 * **User Experience:** Digital dash, push-button control, but analog feel.
 

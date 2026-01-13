@@ -1,6 +1,6 @@
 # Project Talus: Mechanical Configuration
 **Status:** Frozen for Build Phase 1
-**Platform:** 1989 Ford Bronco II (RBV Chassis)
+**Platform:** 1988 Ford Bronco II (RBV Chassis)
 **Wheelbase:** 94.0" (Stock)
 
 ---
