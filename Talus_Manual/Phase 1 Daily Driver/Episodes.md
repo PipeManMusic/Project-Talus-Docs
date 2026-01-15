@@ -4,7 +4,7 @@
 
 ## Episode 1: The Tune-Up
 **Goal:** Engine baselining (Oil, Ignition, Fuel).
-
+gi
 **Parts:**
 - 1x Jug (5 Qt) Mobil 1 High Mileage 10W-30
 - 6x Motorcraft SP-409 Spark Plugs (Gap to 0.044")
