@@ -83,7 +83,7 @@
 ### Layer Stack
 1.  **Base:** ABS Plastic or Aluminum wrapped in **Black Vinyl**.
 2.  **Infill:** **Black Anodized Aluminum** (Top half).
-3.  **Armrest:** Steel-core box with Brushed Aluminum Switch Plate.
+3.  **Armrest:** Custom fiberglass with Brushed Aluminum Switch Plate.
 4.  **Pocket:** Laser-cut **MOLLE Grid** (Wrinkle Black) spaced off the door with **1.5" HDPE Frame**.
 
 ---
