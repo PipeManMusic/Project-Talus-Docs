@@ -14,7 +14,7 @@ A 4-point internal roll cage designed to provide rollover protection for front o
 * **Safety:** Main hoop rigidity + C-pillar triangulation.
 * **Ergonomics:** No A-pillar bars to obstruct entry/exit or vision.
 * **Restraint:** Integration of inertia-reel harnesses for street-legal comfort and trail safety.
-* **Aesthetic:** "Industrial Neutral" (Steel-It Grey) to contrast with Molten Orange accents.
+* **Aesthetic:** "Industrial Neutral" (Steel-It Black) to contrast with Molten Orange accents.
 
 ---
 
